@@ -14,7 +14,7 @@ list: .word 7, 9 , 4, 3, 8, 1, 6, 2, 5
 .globl main
 
 main:
-	li $s0, 9 								# s0 = length
+	li $s0, 9 							# s0 = length
 	
 	li $v0, 4
 	la $a0, prompt1
@@ -36,7 +36,7 @@ main:
 	jal printData							# call printData function
 	
 	
-	li $t0, 0								# t0 = k = 0
+	li $t0, 0							# t0 = k = 0
 	addi $t1, $s0, -1						# t1 = length-1
 	
 	la $a1, list
@@ -87,7 +87,7 @@ main:
 
 
 printData:
-	bge $t0, $s0, exitPrintData				# if iterator >= size then exit
+	bge $t0, $s0, exitPrintData					# if iterator >= size then exit
 	
 	lw	$t1, 0($a1)						
 	
@@ -97,7 +97,7 @@ printData:
 	move $a0, $t1
 	syscall
 	
-	li $v0, 4								# print space
+	li $v0, 4							# print space
 	la $a0, space
 	syscall
 	
